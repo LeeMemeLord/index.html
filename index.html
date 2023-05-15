@@ -1,0 +1,114 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Authentification</title>
+
+    <!-- Balise meta pour un site "responsive" -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Inclusion de bootstrap -->
+    <link rel="stylesheet" href="styles/libExterne/bootstrap.css">
+
+    <!-- Mes styles -->
+    <link rel="stylesheet" href="styles/general.css">
+    <!-- Scripts pour jQuery et Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"></script>
+    <script src="js/librairie/bootstrap.bundle.js"></script>
+
+    <!-- Scripts pour cryptage des mots de passe -->
+    <script src="js/librairie/core.js"></script>
+    <script src="js/librairie/md5.js"></script>
+
+    <!-- Mes scripts -->
+    <script src="js/commun.js"></script>
+    <script src="js/gestionAbonnes.js"></script>
+    <script src="js/index.js"></script>
+</head>
+<body>
+    <div  class="modal fade" id="maFenetreErreur">
+        <div id="idDiv2" class="modal-dialog modal-dialog-centered">
+            <div id="idDiv3" class="modal-content">
+                <div id="idDiv4" class="modal-header">
+                    <h4 class="modal-title text-danger">Attention</h4>
+                </div>
+                <div class="modal-body ">
+                    <span id="msgErreurModal"></span>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-warning" data-dismiss="modal">Fermer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Zone commune à toutes les pages : en-tête -->
+    <header >
+        <h1>Course sucrée d'Halloween</h1>
+    </header>
+<!-- Zone commune à toutes les pages : Barre de navigation incluant zone d'affichage du pseudonyme de l'abonné authentifié -->
+    <div class="backg">
+        <nav id="nav" class="container">
+            <button class="buttonDirection " onclick="naviguerPage(PAGE_ACCUEIL)">Connection</button>
+           <button onclick="permissionD_Entree()" class="buttonDirection">Jouer</button>
+                <p id="lePseudo"></p>
+                <button id="buttonX" onclick="quitterJeu()"></button>
+        </nav>
+    <!-- Zone spécifique à la page courante -->
+
+    <main class="container">
+        <ul class="nav nav-tabs justify-content-center">
+            <li class="nav-item">
+                <a class="nav-link active " data-toggle="tab" href="#form1" autofocus>S'authentifier</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#form2" autofocus>S'inscrire</a>
+            </li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane fade show active" id="form1" >
+                <form id="form-authentification" autocomplete="off">
+                    <div class="form-group">
+                        <label for="identifiants"> Identifiant</label><br>
+                        <input type="text" class="form-control" id="identifiants" name="indentifiant"><br><br>
+
+                        <label for="mdps">Mot de passe</label><br>
+                        <input type="password" class="form-control" id="mdps" name="mdp"><br><br>
+
+                        <input type="submit" value="Valider" id="validerAutentification">
+                    </div>
+                </form>
+            </div>
+            <div class="tab-pane fade" id="form2">
+                <form id ="form-inscription" autocomplete="off" >
+                    <div class="form-group">
+                        <label for="identifiant"> Identifiant</label>
+                        <input type="text" class="form-control" id="identifiant" placeholder="2 à 10 caractères :Lettres/chiffres" name="indentifiant"><br>
+
+                        <label for="pseudo">Pseudo</label>
+                        <input type="text" class="form-control" id="pseudo" placeholder="2 à 10 caractères :Lettres/chiffres" name="pseudo"><br>
+
+                        <label for="mdp">Mot de passe</label>
+                        <input type="password" class="form-control" placeholder="5 à 20 caractères,espace et 3 lettre a/A" id="mdp" name="mdp"><br>
+
+                        <label for="cmdp">Confirmation du mot de passe</label>
+                        <input type="password" class="form-control"  id="cmdp" name="cmdp"><br>
+
+                        <input type="submit" value="Valider" id="valideurInsription">
+                    </div>
+                </form>
+
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Zone commune à toutes les pages : Pied de page -->
+    <footer>
+        <h3>&#169; Mikhail Kurilenko, Cégep André-Laurendeau,Hiver 2023</h3>
+    </footer>
+    </div>
+</body>
+</html>

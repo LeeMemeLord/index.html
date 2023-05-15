@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Jeu</title>
+
+    <!-- Balise meta pour un site "responsive" -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Inclusion de bootstrap -->
+    <link rel="stylesheet" href="styles/libExterne/bootstrap.css">
+
+    <!-- Mes styles -->
+    <link rel="stylesheet" href="styles/general.css">
+    <link rel="stylesheet" href="styles/jeu.css">
+
+    <!-- Scripts pour jQuery et Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"></script>
+    <script src="js/librairie/bootstrap.bundle.js"></script>
+
+    <!-- Scripts pour cryptage des mots de passe -->
+    <script src="js/librairie/core.js"></script>
+    <script src="js/librairie/md5.js"></script>
+
+    <!-- Mes scripts -->
+    <script src="js/commun.js"></script>
+    <script src="js/gestionAbonnes.js"></script>
+    <script src="js/jogger.js"></script>
+</head>
+<body>
+    <!-- Zone commune à toutes les pages : en-tête -->
+    <header >
+        <h1>Course sucrée d'Halloween</h1>
+    </header>
+    <!-- Zone commune à toutes les pages : Barre de navigation incluant zone d'affichage du pseudonyme de l'abonné authentifié -->
+    <div class="backg">
+    <nav class="container">
+           <button onclick="naviguerPage(PAGE_ACCUEIL)">Connection</button>
+            <button onclick="naviguerPage(PAGE_JEU)">Jouer</button>
+            <p id="lePseudo"></p>
+            <button id="buttonX" onclick="quitterJeu()"></button>
+        </nav>
+    <!-- Zone spécifique à la page courante -->
+    <main class="container">
+        <div id="zoneJeu">
+            <div id="zoneNiveau">Niveau <span>1</span></div>
+            <div id="zonePointage">Pts <span>0</span></div>
+            <div id="zoneRebours">Temps <span>03:00</span></div>
+
+            <img id="personnage" src="images/Marche0.png" alt="Garcon">
+
+            <!-- On place temporairement un obstacle pour voir sa position. -->
+            <div class="obstacle"></div>
+
+            <!-- On place temporairement les 3 types de pièces de monnaie. -->
+            <!-- À retirer lorsque votre projet sera terminé. -->
+            <div class="piece piece1" style="top: 350px; left: 650px;">3</div>
+            <div class="piece piece2" style="top: 400px; left: 800px;">5</div>
+            <div class="piece piece3" style="top: 370px; left: 950px;">10</div>
+        </div>
+        <div id="boutons">
+            <button id="btnAide" type="button">Aide</button>
+            <button id="btnGo" type="button" onclick="qualite()">Go</button>
+            <button id="btnRecords" type="button">Records</button>
+        </div>
+    </main>
+    <!-- Zone commune à toutes les pages : Pied de page -->
+    <footer>
+        <h3>&#169; Mikhail Kurilenko, Cégep André-Laurendeau,Hiver 2023</h3>
+    </footer>
+    </div>
+</body>
+</html>
